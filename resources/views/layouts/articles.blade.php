@@ -6,5 +6,5 @@
 
 @section('contenu')
     <h2>Mes articles</h2>
-    @each('articles.index', $articles, 'article', 'articles.no-articles')
+    @each('articles.partials.index', $articles, 'article', 'articles.partials.no-articles')
 @endsection
