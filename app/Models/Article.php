@@ -18,4 +18,8 @@ class Article extends Model
     public function comments(){
         return $this->hasMany(Comment::class);
     }
+    // un article n'a qu'un seul user
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }

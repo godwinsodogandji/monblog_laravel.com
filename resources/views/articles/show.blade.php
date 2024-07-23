@@ -10,7 +10,8 @@
             <h2 class="card-title mb-3 mt-3">
                 {{ $article['title'] }}
             </h2>
-
+            <span class="badge text-bg-secondary"> Auteur : {{ $article->user->name }}. Crée le
+                {{ $article->created_at->toDateString() }}</span>
             <p class="card-text">{{ $article['body'] }}</p>
         </div>
     </article>
@@ -25,15 +26,17 @@
             </form>
         </div>
         <div class="mt-5">
-           <div class="col-md-6 mb-3">
-
             @forelse ($article->comments as $comment)
-            <p class="text-primary">User {{$comment->user_id}}</p>
-            <small>{{$comment['comment']}}</small>
-            @empty
-            <p>Aucun commentaire n'est trouvé</p>
+                <div class="mb-3">
+                    <p>
+                        <span class="badge text-primary">{{ $comment->user->name }}</span>
+                        <span class="badge text-bg-secondary">{{ $comment->created_at->diffForHumans() }}</span>
+                    </p>
+                    <small>{{ $comment['comment'] }}</small>
+                @empty
+                    <p>Aucun commentaire n'est trouvé</p>
             @endforelse
-           </div>
+        </div>
         </div>
     </section>
 @endsection
