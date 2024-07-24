@@ -11,6 +11,12 @@
         <div class="card-body">
             <h2 class="card-title mb-3 mt-3">
                 {{ $article['title'] }}
+                <a href="/articles/{{$article->id}}/edit" class="btn btn-sm btn-warning ml-3">Editer l'article</a>
+                <form method="POST" action="{{route('articles.destroy', $article->id)}}">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger">Supprimer</button>
+                </form>
             </h2>
             <span class="badge text-bg-secondary"> Auteur : {{ $article->user->name }}. Crée le
                 {{ $article->created_at->toDateString() }}</span>

@@ -48,7 +48,11 @@
     </nav>
 
 
-
+    @if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
     <main class="container mt-4">
         {{-- Contenu de toutes les pages ici --}}
         @yield('contenu')

@@ -4,7 +4,7 @@
     @endif
     <div class="card-body">
         <h2 class="card-title">
-            <a href="/article/{{ $article['id'] }}"> {{ $article['title'] }}</a>
+            <a href="/articles/{{ $article['id'] }}"> {{ $article['title'] }}</a>
 
         </h2>
 
