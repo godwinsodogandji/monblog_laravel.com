@@ -5,7 +5,9 @@
 @endsection
 @section('contenu')
     <article>
-        <img src="{{ asset('storage/'.$article->image)}}" alt="..." class="img-thumbnail">
+        @if ($article->image)
+            <img src="{{ asset('storage/' . $article->image) }}" alt="..." class="img-thumbnail">
+        @endif
         <div class="card-body">
             <h2 class="card-title mb-3 mt-3">
                 {{ $article['title'] }}

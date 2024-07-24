@@ -1,5 +1,7 @@
 <article class="card mb-3">
-    <img src="{{ asset('storage/'.$article->image)}}" alt="..."  class="img-thumbnail">
+    @if ($article->image)
+        <img src="{{ asset('storage/' . $article->image) }}" alt="..." class="img-thumbnail">
+    @endif
     <div class="card-body">
         <h2 class="card-title">
             <a href="/article/{{ $article['id'] }}"> {{ $article['title'] }}</a>

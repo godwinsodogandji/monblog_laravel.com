@@ -14,7 +14,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles = Article::all();
+        $articles = Article::latest()->paginate(4);
         return view("layouts.articles", ["articles" => $articles]);
     }
 
@@ -41,6 +41,8 @@ class ArticleController extends Controller
             ->store("images","public");
             $validated["image"] = $path;
         }
+
+        $validated['user_id'] = 1;
         //Envoyer l'article dans la BDD
 
         Article::create($validated);
