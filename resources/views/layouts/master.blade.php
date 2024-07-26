@@ -32,21 +32,41 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
                     <h2> <a class="navbar-brand" href="/">Mon Blog Laravel</a></h2>
-                    <a class="navbar-brand" href="/contact-us">Contactez-nous</a>
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/contact-us">Contactez-vous</a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="/about">A propos</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="/articles">Articles</a>
                         </li>
-
                     </ul>
+                    @if (Auth::user())
+                        <form action="" method="POST">
+                            @csrf
+                            <a class="nav-link dropdown-toggle" href="{{ route('logout') }}" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false" style="color: white">
+                                {{ Auth::user()->name }}
+                            </a>
+
+                            <ul class="dropdown-menu">
+
+                                <li><a class="dropdown-item" href="#"> Profile </a>
+                                </li>
+
+                                <li><a class="dropdown-item" href="{{route("logout")}}">Se déconnecter</a></li>
+                            </ul>
+                        </form>
+                    @endif
                 </div>
             </div>
         </nav>
     </nav>
-
 
     @if (session('success'))
         <div class="alert alert-success">

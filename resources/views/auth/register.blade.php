@@ -2,6 +2,7 @@
 
 
 @section('title')
+    Register
 @endsection
 @section('contenu')
     <div class="row justify-content-center">
@@ -41,8 +42,8 @@
                 </div>
                 <div class="mb-3">
                     <label for="password_confirmation" class="form-label">Confimer le mot de passe</label>
-                    <input type="password" class="form-control" id="password_confirmation"
-                        name="password_confirmation" value="{{ old('password_confirmation') }}" required>
+                    <input type="password" class="form-control" id="password_confirmation" name="password_confirmation"
+                        value="{{ old('password_confirmation') }}" required>
                     @error('password_confirmation')
                         <div class="invalid feedback">
                             {{ $message }}

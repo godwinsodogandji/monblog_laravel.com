@@ -2,6 +2,7 @@
 
 
 @section('title')
+    Connexion
 @endsection
 @section('contenu')
     <div class="row justify-content-center">
@@ -40,4 +41,3 @@
         </div>
     </div>
 @endsection
-
