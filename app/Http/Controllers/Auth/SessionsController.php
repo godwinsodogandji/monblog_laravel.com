@@ -18,24 +18,28 @@ class SessionsController extends Controller
     }
     public function login(Request $request)
     {
-            $credentials = $request->validate([
-                'email' => ['required', 'email'],
-                'password' => ['required'],
-            ]);
+        $credentials = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+        ]);
 
-            if (Auth::attempt($credentials)) {
-                $request->session()->regenerate();
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
 
-                return redirect()->intended(route('home'));
-            }
+            return redirect()->intended(route('home'));
+        }
 
-            return back()->withErrors([
-                'email' => 'The provided credentials do not match our records.',
-            ])->onlyInput('email');
+        return back()->withErrors([
+            'email' => 'The provided credentials do not match our records.',
+        ])->onlyInput('email');
     }
-    public function logout (){
+    public function logout()
+    {
         Auth::logout();
-        return redirect()->route("login")->with("success","Déconnexion réussie");
+        return redirect()->route("login")->with("success", "Déconnexion réussie");
+    }
+    public function profil(){
+        return view("auth.profile");
     }
 
 

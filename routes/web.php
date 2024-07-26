@@ -8,7 +8,7 @@ use App\Http\Controllers\ArticleController;
 
 Route::controller(PagesController::class)->group(function () {
     Route::get("/", "index");
-    Route::get("/","home")->name("home");
+    Route::get("/", "home")->name("home");
     Route::get("/contact-us", "contact");
     Route::get("/about", "about");
 });
@@ -25,12 +25,13 @@ Route::controller(ArticleController::class)->group(function () {
 });
 
 // route d'authentification
-Route::get("/register",[RegisterController::class, "index"])->name("register"); //Affiche la page d'inscription
-Route::post("/register",[RegisterController::class, "store"])->name("register");//permet d'effectuer les enregistrements une fois le formulaire soumis
+Route::get("/register", [RegisterController::class, "index"])->name("register"); //Affiche la page d'inscription
+Route::post("/register", [RegisterController::class, "store"])->name("register");//permet d'effectuer les enregistrements une fois le formulaire soumis
 
-Route::get("/login",[SessionsController::class, "index"])->name("login"); //Affiche la page de connexion
+Route::get("/login", [SessionsController::class, "index"])->name("login"); //Affiche la page de connexion
 Route::post('/login', [SessionsController::class, 'login']); //permet d'effectuer la connexion
-Route::get('/logout', [SessionsController::class,'logout'])->name("logout"); //permet de faire la déconnexion
+Route::get('/logout', [SessionsController::class, 'logout'])->name("logout"); //permet de faire la déconnexion
 
+Route::get("/profil", [SessionsController::class, "profil"])->name("profil");
 
 

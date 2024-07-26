@@ -56,10 +56,10 @@
 
                             <ul class="dropdown-menu">
 
-                                <li><a class="dropdown-item" href="#"> Profile </a>
+                                <li><a class="dropdown-item" href="/profil"> Profil </a>
                                 </li>
 
-                                <li><a class="dropdown-item" href="{{route("logout")}}">Se déconnecter</a></li>
+                                <li><a class="dropdown-item" href="{{route("logout")}}" style="color: red">Se déconnecter</a></li>
                             </ul>
                         </form>
                     @endif
